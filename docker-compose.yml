@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  my-node:
+    build: .
+    container_name: my-node
+    ports:
+      - '3030:3030'
+    environment:
+      - TZ=Asia/Bangkok
+    restart: always
+    networks:
+      - webnetwork
+
+networks:
+  webnetwork:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.20.0.0/16
+          ip_range: 10.20.5.0/24
+          gateway: 10.20.5.254
