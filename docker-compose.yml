@@ -8,7 +8,7 @@ services:
     volumes:
       - ./app:/usr/src/app
     working_dir: /usr/src/app
-    command: sh -c 'npm install; npm start'
+    command: sh -c 'npm install; npm start;'
     ports:
       - '3030:3030'
     environment:
