@@ -2,8 +2,13 @@ version: '2'
 
 services:
   my-node:
-    build: .
+    image: node:7
     container_name: my-node
+
+    volumes:
+      - ./app:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c 'npm install; npm start'
     ports:
       - '3030:3030'
     environment:
